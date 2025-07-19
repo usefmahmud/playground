@@ -1,4 +1,6 @@
 import { FolderTreeWithState } from "@/components/features/folder-tree/folder-tree";
+import { Link } from "react-router-dom";
+import { ArrowLeft, FolderTree } from "lucide-react";
 
 import { type FolderTreeType } from "@/types/folder-tree";
 
@@ -342,8 +344,46 @@ const DATA: FolderTreeType[] = [
 
 const FolderTreePage = () => {
   return (
-    <div className="p-10 flex ps-30">
-      <FolderTreeWithState tree={DATA} />
+    <div className="min-h-screen bg-slate-50">
+      {/* Header with navigation */}
+      <div className="bg-white border-b border-slate-200 shadow-sm">
+        <div className="container mx-auto px-6 py-4">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center space-x-4">
+              <Link
+                to="/"
+                className="inline-flex items-center px-3 py-2 text-sm font-medium text-slate-600 hover:text-slate-900 hover:bg-slate-100 rounded-md transition-colors"
+              >
+                <ArrowLeft className="w-4 h-4 mr-2" />
+                Back to Home
+              </Link>
+              <div className="h-6 w-px bg-slate-300"></div>
+              <div className="flex items-center space-x-2">
+                <FolderTree className="w-5 h-5 text-slate-700" />
+                <h1 className="text-lg font-semibold text-slate-900">
+                  Folder Tree Explorer
+                </h1>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Main content */}
+      <div className="container mx-auto px-6 py-8">
+        <div className="bg-white rounded-lg border border-slate-200 shadow-sm p-6">
+          <h2 className="text-xl font-semibold text-slate-900 mb-4">
+            Interactive File Explorer
+          </h2>
+          <p className="text-slate-600 mb-6">
+            Click on folders to expand/collapse them and explore the file
+            structure.
+          </p>
+          <div className="border border-slate-200 rounded-lg p-4 bg-slate-50">
+            <FolderTreeWithState tree={DATA} />
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
