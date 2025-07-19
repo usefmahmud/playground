@@ -3,5 +3,5 @@ export type FolderTreeType = {
   name: string;
   children?: FolderTreeType[];
   isOpen?: boolean;
-  isLeaf?: boolean;
-}
+  type: "folder" | "file";
+};
