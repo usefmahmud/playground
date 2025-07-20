@@ -2,7 +2,7 @@ import { FolderTreeWithState } from "@/components/features/folder-tree/folder-tr
 import { Link } from "react-router-dom";
 import { ArrowLeft, FolderTree } from "lucide-react";
 
-import { type FolderTreeType } from "@/types/folder-tree";
+import type { FolderTreeType } from "@/types/folder-tree";
 
 const DATA: FolderTreeType[] = [
   {
