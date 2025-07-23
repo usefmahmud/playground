@@ -17,6 +17,13 @@ const experiments: Experiment[] = [
     path: "/folder-tree",
     status: "completed",
   },
+  {
+    id: "virtualized-list",
+    title: "Virtualized List",
+    description: "Efficiently render large lists with virtualization.",
+    path: "/virtualized-list",
+    status: "completed",
+  },
 ];
 
 const HomePage = () => {
@@ -34,7 +41,7 @@ const HomePage = () => {
         </div>
 
         {/* Experiments List */}
-        <div className="space-y-4">
+        <div className="flex flex-col gap-6">
           {experiments.map((experiment) => (
             <ExperimentCard key={experiment.id} experiment={experiment} />
           ))}
@@ -52,7 +59,7 @@ const ExperimentCard = ({ experiment }: ExperimentCardProps) => {
   const { title, description, path, status } = experiment;
 
   const cardContent = (
-    <div className="flex items-center justify-between p-4 border border-gray-200 rounded-lg hover:bg-gray-50 transition-colors">
+    <div className="flex items-center hover:scale-103  ease-in-out justify-between p-4 border border-gray-200 rounded-lg hover:shadow-lg/5  transition-all">
       <div className="flex-1">
         <div className="flex items-center gap-3 mb-1">
           <h3 className="font-medium text-gray-900">{title}</h3>
